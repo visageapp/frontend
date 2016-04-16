@@ -1,5 +1,8 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { login } from './../../actions/landing.js';
 import FacebookLogin from './FacebookLogin.js';
 
 class Landing extends React.Component{
@@ -10,6 +13,8 @@ class Landing extends React.Component{
 
   responseFacebook (response) {
     if (response.accessToken) {
+      console.log(response);
+      this.props.login(response.name);
       console.log(response.accessToken);
       localStorage.setItem('token', response.accessToken);
     }
@@ -23,7 +28,7 @@ class Landing extends React.Component{
                          language="en_US"
                          scope="public_profile,email"
                          class="facebook-login"
-                         responseHandler={this.responseFacebook}
+                         responseHandler={this.responseFacebook.bind(this)}
                          xfbml={true}
                          version="v2.5"
                          buttonText="Login With Facebook"/>
@@ -32,4 +37,19 @@ class Landing extends React.Component{
   }
 }
 
-export default Landing;
+function mapStateToProps(state) {
+  return {
+    info: state.landing
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    login: bindActionCreators(login, dispatch),
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Landing);
