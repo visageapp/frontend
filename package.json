@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/visageapp/frontend#readme",
   "dependencies": {
+    "extract-text-webpack-plugin": "^1.0.1",
     "immutable": "3.8.0",
     "isomorphic-fetch": "2.2.1",
     "react": "15.0.1",
