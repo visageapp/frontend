@@ -1,6 +1,9 @@
 import React from 'react';
 import { render } from 'react-dom';
-import FacebookLogin from '../FacebookLogin.js';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { login } from './../../../actions/landing.js';
+import FacebookLogin from './../FacebookLogin.js';
 
 class CreditCard extends React.Component{
 
@@ -18,10 +21,52 @@ class CreditCard extends React.Component{
   }
 
   render () {
-    var cardPath = "M296.667,202.909H91.333c0,0-31.043,47.993-28,36.833c3-11-12-36.833-12-36.833H24.667c-6.6,0-12-5.4-12-12v-162c0-6.6,5.4-12,12-12h272c6.6,0,12,5.4,12,12v162C308.667,197.509,303.267,202.909,296.667,202.909z";
+    var cardPath = 'M296.667,202.909H91.333c0,0-31.043,47.993-28,36.833c3-11-12-36.833-12-36.833H24.667c-6.6,0-12-5.4-12-12v-162c0-6.6,5.4-12,12-12h272c6.6,0,12,5.4,12,12v162C308.667,197.509,303.267,202.909,296.667,202.909z';
     var clipStyle = {
       clipPath: 'url(#clip)',
       fill: 'url(#grad2)'
+    };
+
+    var header = {
+      color: '#888',
+      paddingTop: '10px',
+      marginBottom: '0px',
+      paddingBottom:'0px',
+      textAlign: 'right',
+      paddingRight: 25
+    };
+
+    var cardInfo = {
+      textShadow: '0 1px 1px rgba(0,0,0,0.5)',
+      fontSize: 17,
+      textTransform: 'uppercase',
+      marginTop: '10px',
+      marginBottom: '10px',
+      paddingLeft: '40px'
+    };
+
+    var cardInfoDate = {
+      textShadow: '0 1px 1px rgba(0,0,0,0.5)',
+      fontSize: 17,
+      textTransform: 'uppercase',
+      justifyContent: 'center',
+      marginTop: '10px',
+      marginBottom: '10px',
+      paddingLeft: '40px'
+    };
+
+    var facebookBtn =  {
+      border: 'none',
+      boxShadow: 'none',
+      backgroundColor: '#415D89',
+      width: '100%',
+      height: '39px',
+      padding: '5px',
+      borderRadius: '2px',
+      textShadow: '0 1px 1px rgba(0,0,0,0.5)',
+      color: '#fff',
+      border: '1px solid #415D89',
+      fontFamily: '"ocr-a-std",sans-serif'
     };
 
     var gradients = (
@@ -31,14 +76,14 @@ class CreditCard extends React.Component{
         <stop  offset="1" style={{stopColor:'#959D9E'}}/>
         </linearGradient>
         <linearGradient id="grad2" gradientUnits="userSpaceOnUse" x1="153" y1="203.7419" x2="449" y2="203.7419">
-        <stop  offset="0" style={{stopColor:'#E1E3E3'}}/>
-        <stop  offset="1" style={{stopColor:'#CBD4D4'}}/>
+        <stop  offset="0" style={{stopColor:'#f5f5f5'}}/>
+        <stop  offset="1" style={{stopColor:'#f3f3f3'}}/>
         </linearGradient>
       </g>
     );
 
     return (
-          <svg viewBox="0 0 320 240" style={{width: '25%', fontFamily: '"ocr-a-std",sans-serif'}}>
+          <svg viewBox="0 0 320 240" style={{width: '480px', fontFamily: '"ocr-a-std",sans-serif'}}>
           {gradients}
           <clipPath id="clip">
             <path d={cardPath}/>
@@ -46,11 +91,12 @@ class CreditCard extends React.Component{
           <path style={{filter: 'drop-shadow( 0 0 8px rgba(0,0,0,0.2))'}} d={cardPath}/>
 
           <path style={clipStyle} d={cardPath}/>
-          <foreignObject class="node" x="46" y="22" width="200" height="300">
-            <input placeholder="Credit Card Number"/>
-            <input placeholder="date"/>
-            <input placeholder="CSV" />
-            <FacebookLogin socialId="1674177709516637" language="en_US" scope="public_profile,email" class="facebook-login" responseHandler={this.responseFacebook.bind(this)} xfbml={true} version="v2.5" buttonText="Login With Facebook"/>
+          <foreignObject style={{clipPath: 'url(#clip)'}} class="node" x="0" y="18" width="320" height="300">
+            <h4 style={header}>Visage</h4>
+            <p style={cardInfoDate}>XXXX XXXX XXXX XXXX</p>
+            <p style={cardInfo}>04/16</p>
+            <p style={cardInfo}>{(this.props.landing.get('name')) ?  this.props.landing.get('name') : 'Your Name' }</p>
+            <FacebookLogin socialId="1674177709516637" language="en_US" scope="public_profile,email" btnStyles={facebookBtn} responseHandler={this.responseFacebook.bind(this)} xfbml={true} version="v2.5" buttonText="Login With Facebook"/>
           </foreignObject>
       </svg>
     );
@@ -59,7 +105,7 @@ class CreditCard extends React.Component{
 
 function mapStateToProps(state) {
   return {
-    info: state.landing
+    landing: state.landing
   }
 }
 
@@ -69,4 +115,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default CreditCard;
+export default connect(mapStateToProps, mapDispatchToProps)(CreditCard);

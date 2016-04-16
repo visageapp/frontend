@@ -50,7 +50,7 @@ export default class FacebookLogin extends React.Component {
 
   render() {
     return (
-        <button className={this.props.class} onClick={this.clickHandler.bind(this)}>
+        <button style={this.props.btnStyles} onClick={this.clickHandler.bind(this)}>
           Login With Facebook
         </button>
     );
