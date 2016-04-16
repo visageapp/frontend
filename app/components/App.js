@@ -1,9 +1,10 @@
 import React from 'react';
 import { render } from 'react-dom';
-import Landing from './Landing/Landing.js';
+import Landing from './Landing/Landing';
 import { Provider } from 'react-redux';
-import configureStore from './../store/store.js';
-import Devtools from './Devtools/Devtools.js';
+import configureStore from './../store/store';
+import Devtools from './Devtools/Devtools';
+import CreditCard from './Landing/CreditCard';
 
 var store = configureStore();
 
@@ -18,6 +19,7 @@ class App extends React.Component{
       <Provider store={store}>
         <div>
           <Landing />
+          <CreditCard />
           <Devtools />
         </div>
       </Provider>

@@ -4,7 +4,8 @@
   "description": "vissage",
   "main": "index.js",
   "scripts": {
-    "lite": "lite-server"
+    "lite": "lite-server",
+    "watch": "webpack --watch"
   },
   "repository": {
     "type": "git",
