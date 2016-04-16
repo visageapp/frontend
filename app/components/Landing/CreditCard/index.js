@@ -24,7 +24,7 @@ class CreditCard extends React.Component{
     var cardPath = 'M296.667,202.909H91.333c0,0-31.043,47.993-28,36.833c3-11-12-36.833-12-36.833H24.667c-6.6,0-12-5.4-12-12v-162c0-6.6,5.4-12,12-12h272c6.6,0,12,5.4,12,12v162C308.667,197.509,303.267,202.909,296.667,202.909z';
     var clipStyle = {
       clipPath: 'url(#clip)',
-      fill: 'url(#grad2)'
+      fill: 'url(#grad1)'
     };
 
     var header = {
@@ -83,20 +83,20 @@ class CreditCard extends React.Component{
     );
 
     return (
-          <svg viewBox="0 0 320 240" style={{width: '480px', fontFamily: '"ocr-a-std",sans-serif'}}>
+          <svg viewBox="0 0 320 256" style={{width: '480px', fontFamily: '"ocr-a-std",sans-serif'}}>
           {gradients}
           <clipPath id="clip">
             <path d={cardPath}/>
           </clipPath>
-          <path style={{filter: 'drop-shadow( 0 0 8px rgba(0,0,0,0.2))'}} d={cardPath}/>
+          <path style={{filter: 'drop-shadow( 0 0 8px rgba(0,0,0,0.1))'}} d={cardPath}/>
 
           <path style={clipStyle} d={cardPath}/>
+          <path style={{fill: 'url(#grad2)', clipPath: 'url(#clip)'}} d="M296.333,197.226H91c0,0-31.043,47.993-28,36.833c3-11-12-36.833-12-36.833H24.333c-6.6,0-12-5.4-12-12v-162c0-6.6,5.4-12,12-12h272c6.6,0,12,5.4,12,12v162C308.333,191.826,302.933,197.226,296.333,197.226z"/>
           <foreignObject style={{clipPath: 'url(#clip)'}} class="node" x="0" y="18" width="320" height="300">
             <h4 style={header}>Visage</h4>
             <p style={cardInfoDate}>XXXX XXXX XXXX XXXX</p>
             <p style={cardInfo}>04/16</p>
             <p style={cardInfo}>{(this.props.landing.get('name')) ?  this.props.landing.get('name') : 'Your Name' }</p>
-            <FacebookLogin socialId="1674177709516637" language="en_US" scope="public_profile,email" btnStyles={facebookBtn} responseHandler={this.responseFacebook.bind(this)} xfbml={true} version="v2.5" buttonText="Login With Facebook"/>
           </foreignObject>
       </svg>
     );
