@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import Landing from './Landing/Landing';
+import Landing from './Landing';
 import { Provider } from 'react-redux';
 import configureStore from './../store/store';
 import Devtools from './Devtools/Devtools';
