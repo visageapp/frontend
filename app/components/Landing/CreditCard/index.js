@@ -111,8 +111,8 @@ class CreditCard extends React.Component{
                   <path style={clipStyle} d={cardPath}/>
                   <path style={{fill: 'url(#grad2)', clipPath: 'url(#clip)'}} d="M296.333,197.226H91c0,0-31.043,47.993-28,36.833c3-11-12-36.833-12-36.833H24.333c-6.6,0-12-5.4-12-12v-162c0-6.6,5.4-12,12-12h272c6.6,0,12,5.4,12,12v162C308.333,191.826,302.933,197.226,296.333,197.226z"/>
                   <foreignObject style={{clipPath: 'url(#clip)'}} class="node" x="0" y="18" width="320" height="300">
-                    <h4 style={header}>Visage</h4>
-                    <p style={cardInfoDate}>XXXX XXXX XXXX XXXX</p>
+                    <img alt="Visage" src="/brand/logotype.svg"/>
+                    <input style={Object.assign({display: 'block'}, cardInfoDate)} placeholder="XXXX XXXX XXXX XXXX" />
                     <p style={cardInfo}>04/16</p>
                     <p style={cardInfo}>{(this.props.landing.get('name')) ?  this.props.landing.get('name') : 'Your Name' }</p>
                   </foreignObject>
