@@ -107,13 +107,13 @@ class CreditCard extends React.Component{
                 <path style={clipStyle} d={cardPath}/>
                 <path style={{fill: 'url(#grad2)', clipPath: 'url(#clip)'}} d="M296.333,197.226H91c0,0-31.043,47.993-28,36.833c3-11-12-36.833-12-36.833H24.333c-6.6,0-12-5.4-12-12v-162c0-6.6,5.4-12,12-12h272c6.6,0,12,5.4,12,12v162C308.333,191.826,302.933,197.226,296.333,197.226z"/>
                 <foreignObject style={{clipPath: 'url(#clip)'}} class="node" x="0" y="18" width="320" height="300">
-                  <div style={{display: 'flex', flexDirection: 'column'}}>
-                    <img style={{width: '128px', height: 'auto', alignSelf: 'flex-end'}} alt="Visage" src="assets/brand/logotype.svg"/>
+                  <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end'}}>
+                    <img style={{width: '70px', height: 'auto', alignSelf: 'flex-end', paddingRight: '-10px',display: 'inline-block'}} alt="Visage" src="assets/brand/logo.svg"/>
+                    <img style={{width: '128px', height: 'auto', alignSelf: 'flex-end', marginLeft: '-10px',paddingRight: '20px', display: 'inline-block'}} alt="Visage" src="assets/brand/logotype.svg"/>
                   </div>
-                  <input style={Object.assign({display: 'block'}, cardInfoDate)} placeholder="XXXX XXXX XXXX XXXX" />
+                  <input style={Object.assign({display: 'block', width: '100%'}, cardInfoDate)} placeholder="XXXX XXXX XXXX XXXX" />
                   <p style={cardInfo}>04/16</p>
                   <p style={cardInfo}>{(this.props.landing.get('name')) ?  this.props.landing.get('name') : 'Your Name' }</p>
-
                 </foreignObject>
               </g>
               <path style={{display: (i.x > 30) ? 'none' : 'auto', transform: `rotateX(${i.x-90}deg)`}} d="M300,18H20c-4.4,0-8-3.6-8-8v0c0-4.4,3.6-8,8-8h280c4.4,0,8,3.6,8,8v0C308,14.4,304.4,18,300,18z"/>
