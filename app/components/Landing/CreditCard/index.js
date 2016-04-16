@@ -82,6 +82,9 @@ class CreditCard extends React.Component{
       </g>
     );
 
+    //<FacebookLogin socialId="1674177709516637" language="en_US" scope="public_profile,email" btnStyles={facebookBtn} responseHandler={this.responseFacebook.bind(this)} xfbml={true} version="v2.5" buttonText="Login With Facebook"/>
+
+
     return (
           <svg viewBox="0 0 320 256" style={{width: '480px', fontFamily: '"ocr-a-std",sans-serif'}}>
           {gradients}
