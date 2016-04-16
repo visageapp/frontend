@@ -1,6 +1,8 @@
 var fs = require('fs');
 var path = require('path');
 var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var autoprefixer = require('autoprefixer');
 
 module.exports = {
 
@@ -23,13 +25,9 @@ module.exports = {
         loader: 'babel-loader'
       },
       {
-        test: /\.scss$/,
-        loaders: ['style', 'css', 'sass']
-      },
-      {
         test: /\.css$/,
-        loaders: ['style-loader','css-loader']
-      },
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]!postcss-loader')
+      }
     ]
   },
 

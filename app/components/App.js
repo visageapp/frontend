@@ -1,5 +1,11 @@
 import React from 'react';
 import { render } from 'react-dom';
+import Landing from './Landing/Landing.js';
+import { Provider } from 'react-redux';
+import configureStore from './../store/store.js';
+import Devtools from './Devtools/Devtools.js';
+
+var store = configureStore();
 
 class App extends React.Component{
 
@@ -9,9 +15,12 @@ class App extends React.Component{
 
   render () {
     return (
-      <div>
-        <h1>Hello from App</h1>
-      </div>
+      <Provider store={store}>
+        <div>
+          <Landing />
+          <Devtools />
+        </div>
+      </Provider>
     );
   }
 }
