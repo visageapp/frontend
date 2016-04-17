@@ -1,7 +1,7 @@
 var fs = require('fs');
 var path = require('path');
 var webpack = require('webpack');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 
 module.exports = {
@@ -9,7 +9,7 @@ module.exports = {
   devtool: 'source-map',
 
   entry: [
-    './app/components/App.js'
+    './app/routes/index.js'
   ],
 
   output: {
@@ -31,7 +31,7 @@ module.exports = {
     ]
   },
   plugins: [
-      new ExtractTextPlugin("bundle.css")
+      new ExtractTextPlugin('bundle.css')
   ]
   // plugins: [
   //   new webpack.optimize.OccurenceOrderPlugin(),
