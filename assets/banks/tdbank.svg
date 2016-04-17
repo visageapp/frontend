@@ -5,7 +5,7 @@
 	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 168.394 51.089"
 	 style="enable-background:new 0 0 168.394 51.089;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:#FFFFFF;}
+	.st0{fill:currentcolor;}
 </style>
 <sodipodi:namedview  bordercolor="#666666" borderopacity="1.0" gridtolerance="10.0" guidetolerance="10.0" height="657.48px" id="base" inkscape:current-layer="svg2404" inkscape:cx="84.204628" inkscape:cy="25.54689" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:window-height="848" inkscape:window-width="1440" inkscape:window-x="0" inkscape:window-y="14" inkscape:zoom="8.0458761" objecttolerance="10.0" pagecolor="#ffffff" width="669.05px">
 	</sodipodi:namedview>
@@ -21,7 +21,7 @@
 <path id="path2647" class="st0" d="M123.413,15.925h7.829v2.953h0.066c0.984-2.397,3.252-3.35,5.589-3.35
 	c4.402,0,6.012,2.3,6.012,5.614v11.895h-8.283v-9.857c0-0.986,0-2.332-1.444-2.332c-1.483,0-1.483,1.346-1.483,2.332v9.857h-8.285
 	V15.925H123.413z"/>
-<polygon id="polygon2649" class="st0" points="153.989,22.718 154.062,22.718 158.794,15.922 168.159,15.922 162.375,23.475 
+<polygon id="polygon2649" class="st0" points="153.989,22.718 154.062,22.718 158.794,15.922 168.159,15.922 162.375,23.475
 	168.394,33.039 158.729,33.039 154.062,24.727 153.989,24.727 153.989,33.039 145.707,33.039 145.707,8.401 153.989,8.401 "/>
 <path id="path2651" class="st0" d="M0,51.089h60.754V0H0V51.089z M39.881,40.037H25.728V16.06h7.11v19.736h6.835
 	c4.72,0,6.704-3.085,6.704-10.994c0-7.97-2.258-10.284-7.043-10.284H23.745v25.52h-7.043v-25.52H6.378v-4.246h35.141
