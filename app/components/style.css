@@ -14,12 +14,11 @@ html, body {
     z-index: -2;
 }
 body {
-    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)), radial-gradient(circle, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3));
+    background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.15)), radial-gradient(circle, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), linear-gradient(30deg, rgba(194, 15, 154, 0.7), rgba(183, 56, 150, 0));
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center bottom;
-    background-blend-mode: multiply;
     background-repeat: no-repeat;
     animation: myfiu-back 30s linear infinite;
 }

@@ -5,7 +5,7 @@ import { login } from './../../actions/landing.js';
 import FacebookLogin from './FacebookLogin.js';
 import PlaidLogin from './PlaidLogin.js';
 import {Motion, StaggeredMotion, spring} from 'react-motion';
-
+import PlaidLogin from './PlaidLogin.js';
 
 class CreditCard extends React.Component{
 
@@ -90,7 +90,7 @@ class CreditCard extends React.Component{
     );
 
     return (
-      <div>
+      <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh'}}>
         <svg viewBox="0 0 320 256" style={{width: '480px', fontFamily: '"ocr-a-std",sans-serif'}}>
           {gradients}
           <clipPath id="clip">
