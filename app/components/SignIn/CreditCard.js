@@ -50,7 +50,8 @@ class CreditCard extends React.Component{
       justifyContent: 'center',
       marginTop: '10px',
       marginBottom: '10px',
-      paddingLeft: '40px'
+      paddingLeft: '40px',
+      fontFamily: '"ocr-a-std",sans-serif'
     };
     var facebookBtn =  {
       border: 'none',
