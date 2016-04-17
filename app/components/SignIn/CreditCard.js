@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { login } from './../../actions/landing.js';
 import FacebookLogin from './FacebookLogin.js';
+import PlaidLogin from './PlaidLogin.js';
 import {Motion, StaggeredMotion, spring} from 'react-motion';
 
 
@@ -19,6 +20,11 @@ class CreditCard extends React.Component{
           console.log(response.accessToken);
           localStorage.setItem('token', response.accessToken);
       }
+  }
+
+  responsePlaid(public_token, metadata) {
+    console.log(public_token);
+    console.log(metadata);
   }
 
   render () {
@@ -83,8 +89,6 @@ class CreditCard extends React.Component{
       </g>
     );
 
-    //<FacebookLogin socialId="1674177709516637" language="en_US" scope="public_profile,email" btnStyles={facebookBtn} responseHandler={this.responseFacebook.bind(this)} xfbml={true} version="v2.5" buttonText="Login With Facebook"/>
-
     return (
       <div>
         <svg viewBox="0 0 320 256" style={{width: '480px', fontFamily: '"ocr-a-std",sans-serif'}}>
@@ -108,6 +112,7 @@ class CreditCard extends React.Component{
                         <input style={Object.assign({display: 'block', width: '100%'}, cardInfoDate)} placeholder="XXXX XXXX XXXX XXXX" />
                         <p style={cardInfo}>04/16</p>
                         <p style={cardInfo}>{(this.props.landing.get('name')) ?  this.props.landing.get('name') : 'Your Name' }</p>
+                                <FacebookLogin socialId="1674177709516637" language="en_US" scope="public_profile,email" btnStyles={facebookBtn} responseHandler={this.responseFacebook.bind(this)} xfbml={true} version="v2.5" buttonText="Login With Facebook"/>
                       </foreignObject>
                     </g>
                     <path style={{display: (i.x > 30) ? 'none' : 'auto', transform: `rotateX(${i.x-90}deg)`}} d="M300,18H20c-4.4,0-8-3.6-8-8v0c0-4.4,3.6-8,8-8h280c4.4,0,8,3.6,8,8v0C308,14.4,304.4,18,300,18z"/>
@@ -117,6 +122,7 @@ class CreditCard extends React.Component{
             }
           </Motion>
         </svg>
+        <PlaidLogin  />
       </div>
     );
   }
