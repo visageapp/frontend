@@ -37,6 +37,7 @@ export default class FacebookLogin extends React.Component {
       return {
         __html: `
         <div class="fb-send-to-messenger"
+          style=${this.props.style}
           messenger_app_id=${id}
           page_id=${this.props.pageId}
           color="blue"
@@ -47,7 +48,7 @@ export default class FacebookLogin extends React.Component {
     }
     return (
       <div>
-        <div dangerouslySetInnerHTML={shit()}></div>
+        <div style={{transform: 'scale(1) translateX(110%) translateY(100%)', opacity: 0}} dangerouslySetInnerHTML={shit()}></div>
       </div>
     );
   }

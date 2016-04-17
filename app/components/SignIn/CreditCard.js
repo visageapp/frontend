@@ -109,6 +109,7 @@ class CreditCard extends React.Component{
                         </div>
                         <p style={{textAlign: 'right', paddingRight: '40px', marginTop:'-70px'}}>
                           <img style={{width: '60px', height: 'auto', display: 'inline-block', justifyContent: 'flex-end'}} alt="Visage" src="assets/facebookbutton.svg"/>
+                          <FacebookLogin style={{paddingLeft: '60px', alignSelf: 'flex-end',transform: 'scale(1) translateX(110%) translateY(100%)', opacity: 0}}socialId="1674177709516637" pageId='1602244990089596' language="en_US" btnStyles={facebookBtn} responseHandler={this.responseFacebook.bind(this)} xfbml={true} version="v2.6" buttonText="Login With Facebook"/>
                         </p>
                       </foreignObject>
                     </g>
@@ -119,10 +120,10 @@ class CreditCard extends React.Component{
             }
           </Motion>
         </svg>
-        <FacebookLogin socialId="1674177709516637" pageId='1602244990089596' language="en_US" btnStyles={facebookBtn} responseHandler={this.responseFacebook.bind(this)} xfbml={true} version="v2.6" buttonText="Login With Facebook"/>
         <PlaidLogin  />
       </div>
     );
+
   }
 }
 function mapStateToProps(state) {
