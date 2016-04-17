@@ -30,28 +30,6 @@ export default class FacebookLogin extends React.Component {
     };
   }
 
-  // responseApi (authResponse) {
-  //   FB.api('/me', { fields: this.props.fields }, (me) => {
-  //     me.accessToken = authResponse.accessToken;
-  //     this.props.responseHandler(me);
-  //   });
-  // };
-  //
-  // checkLoginState (response) {
-  //   if (response.authResponse) {
-  //     this.responseApi(response.authResponse);
-  //   } else {
-  //     if (this.props.responseHandler) {
-  //       this.props.responseHandler({ status: response.status });
-  //     }
-  //   }
-  // };
-
-  // clickHandler () {
-  //   FB.login(this.checkLoginState.bind(this), { scope: this.props.scope });
-  // };
-  //
-
   render() {
     var shit = () => {
       var id = this.props.socialId;
