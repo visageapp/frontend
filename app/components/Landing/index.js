@@ -24,7 +24,7 @@ export default class Landing extends React.Component {
           <path ref="p7" d="M139.932,32.892c-1.177,0.681-2.543,1.07-4,1.07c-4.418,0-8-3.582-8-8s3.582-8,8-8c2.028,0,3.88,0.755,5.29,1.998l-7.29,8.002"/>
         ];
       var a = {x: 1};
-      var subtitle = "The Inteligent Finance Messenger";
+      var subtitle = "The Intelligent Finance Messenger";
         return (
             <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh', flexDirection: 'column'}}>
               <Motion defaultStyle={{x: 1}} style={{x: spring(0, {stiffness: 30})}}>
@@ -51,12 +51,12 @@ export default class Landing extends React.Component {
             <Motion defaultStyle={{x: 1}} style={{x: spring(0, {stiffness: 30})}}>
 
               {i => {
-                var s = subtitle.substring(0, parseInt((1-i.x)*subtitle.length));
+                var s = subtitle.substring(0, Math.ceil((1-(i.x*i.x))*subtitle.length));
                   return (
                     <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column'}}>
                     <h2>{s}</h2>
                     <Link to='/signin'>
-                    <svg viewBox="0 0 16 16" style={{width: 48, opacity: 1-i.x}}>
+                    <svg viewBox="0 0 16 16" style={{padding: '32px 0', width: 48, opacity: 1-i.x}}>
                           <polyline style={{fill:'none',stroke:'#FFFFFF', strokeMiterlimit:10}} points="14,5 8,11 2,5 "/>
                     </svg>
                     </Link>

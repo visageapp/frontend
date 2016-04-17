@@ -5,13 +5,10 @@ import { login } from './../../actions/landing.js';
 import FacebookLogin from './FacebookLogin.js';
 import PlaidLogin from './PlaidLogin.js';
 import {Motion, StaggeredMotion, spring} from 'react-motion';
-
 class CreditCard extends React.Component{
-
   constructor (props) {
     super(props);
   }
-
   responseFacebook(response) {
       if (response.accessToken) {
           console.log(response);
@@ -20,19 +17,16 @@ class CreditCard extends React.Component{
           localStorage.setItem('token', response.accessToken);
       }
   }
-
   responsePlaid(public_token, metadata) {
     console.log(public_token);
     console.log(metadata);
   }
-
   render () {
     var cardPath = 'M296.667,202.909H91.333c0,0-31.043,47.993-28,36.833c3-11-12-36.833-12-36.833H24.667c-6.6,0-12-5.4-12-12v-162c0-6.6,5.4-12,12-12h272c6.6,0,12,5.4,12,12v162C308.667,197.509,303.267,202.909,296.667,202.909z';
     var clipStyle = {
       clipPath: 'url(#clip)',
       fill: 'url(#grad1)'
     };
-
     var header = {
       color: '#888',
       paddingTop: '10px',
@@ -41,7 +35,6 @@ class CreditCard extends React.Component{
       textAlign: 'right',
       paddingRight: 25
     };
-
     var cardInfo = {
       textShadow: '0 1px 1px rgba(0,0,0,0.5)',
       fontSize: 17,
@@ -50,7 +43,6 @@ class CreditCard extends React.Component{
       marginBottom: '10px',
       paddingLeft: '40px'
     };
-
     var cardInfoDate = {
       textShadow: '0 1px 1px rgba(0,0,0,0.5)',
       fontSize: 17,
@@ -60,7 +52,6 @@ class CreditCard extends React.Component{
       marginBottom: '10px',
       paddingLeft: '40px'
     };
-
     var facebookBtn =  {
       border: 'none',
       boxShadow: 'none',
@@ -74,7 +65,6 @@ class CreditCard extends React.Component{
       border: '1px solid #415D89',
       fontFamily: '"ocr-a-std",sans-serif'
     };
-
     var gradients = (
       <g>
         <linearGradient id="grad1" gradientUnits="userSpaceOnUse" x1="300" y1="328" x2="300" y2="88.5162">
@@ -87,7 +77,6 @@ class CreditCard extends React.Component{
         </linearGradient>
       </g>
     );
-
     return (
       <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh'}}>
         <svg viewBox="0 0 320 256" style={{width: '480px', fontFamily: '"ocr-a-std",sans-serif'}}>
@@ -111,7 +100,6 @@ class CreditCard extends React.Component{
                         <input style={Object.assign({display: 'block', width: '100%'}, cardInfoDate)} placeholder="XXXX XXXX XXXX XXXX" />
                         <p style={cardInfo}>04/16</p>
                         <p style={cardInfo}>{(this.props.landing.get('name')) ?  this.props.landing.get('name') : 'Your Name' }</p>
-                                <FacebookLogin socialId="1674177709516637" language="en_US" scope="public_profile,email" btnStyles={facebookBtn} responseHandler={this.responseFacebook.bind(this)} xfbml={true} version="v2.5" buttonText="Login With Facebook"/>
                       </foreignObject>
                     </g>
                     <path style={{display: (i.x > 30) ? 'none' : 'auto', transform: `rotateX(${i.x-90}deg)`}} d="M300,18H20c-4.4,0-8-3.6-8-8v0c0-4.4,3.6-8,8-8h280c4.4,0,8,3.6,8,8v0C308,14.4,304.4,18,300,18z"/>
@@ -121,22 +109,20 @@ class CreditCard extends React.Component{
             }
           </Motion>
         </svg>
+        <FacebookLogin socialId="1674177709516637" pageId='1602244990089596' language="en_US" btnStyles={facebookBtn} responseHandler={this.responseFacebook.bind(this)} xfbml={true} version="v2.6" buttonText="Login With Facebook"/>
         <PlaidLogin  />
       </div>
     );
   }
 }
-
 function mapStateToProps(state) {
   return {
     landing: state.landing
   }
 }
-
 function mapDispatchToProps(dispatch) {
   return {
     login: bindActionCreators(login, dispatch),
   }
 }
-
 export default connect(mapStateToProps, mapDispatchToProps)(CreditCard);
