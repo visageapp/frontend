@@ -3,16 +3,22 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { sendPlaid, linkPlaid } from './../../actions/landing.js';
 
-class BankButton extends React.Component {
-  constructor(props) {
-    super(props);
+export default class PlaidLogin extends React.Component {
+  constructor (props, context) {
+    super(props, context);
+    this.handleBank = this.handleBank.bind(this);
+    this.state = {
+      username: '',
+      password: '',
+      bank: ''
+    }
+
   }
   render() {
     var lc = this.props.bank.replace(/\s+/g, '').toLowerCase();
     return (<div style={{width: 128}}><img src={`../assets/banks/${lc}.svg`} alt={this.props.bank}/></div>);
   }
 }
-
 
 export default class PlaidLogin extends React.Component {
   constructor (props, context) {
