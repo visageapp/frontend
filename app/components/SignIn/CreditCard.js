@@ -5,13 +5,10 @@ import { login } from './../../actions/landing.js';
 import FacebookLogin from './FacebookLogin.js';
 import PlaidLogin from './PlaidLogin.js';
 import {Motion, StaggeredMotion, spring} from 'react-motion';
-
 class CreditCard extends React.Component{
-
   constructor (props) {
     super(props);
   }
-
   responseFacebook(response) {
       if (response.accessToken) {
           console.log(response);
@@ -20,19 +17,16 @@ class CreditCard extends React.Component{
           localStorage.setItem('token', response.accessToken);
       }
   }
-
   responsePlaid(public_token, metadata) {
     console.log(public_token);
     console.log(metadata);
   }
-
   render () {
     var cardPath = 'M296.667,202.909H91.333c0,0-31.043,47.993-28,36.833c3-11-12-36.833-12-36.833H24.667c-6.6,0-12-5.4-12-12v-162c0-6.6,5.4-12,12-12h272c6.6,0,12,5.4,12,12v162C308.667,197.509,303.267,202.909,296.667,202.909z';
     var clipStyle = {
       clipPath: 'url(#clip)',
       fill: 'url(#grad1)'
     };
-
     var header = {
       color: '#888',
       paddingTop: '10px',
@@ -41,7 +35,6 @@ class CreditCard extends React.Component{
       textAlign: 'right',
       paddingRight: 25
     };
-
     var cardInfo = {
       textShadow: '0 1px 1px rgba(0,0,0,0.5)',
       fontSize: 17,
@@ -50,7 +43,6 @@ class CreditCard extends React.Component{
       marginBottom: '10px',
       paddingLeft: '40px'
     };
-
     var cardInfoDate = {
       textShadow: '0 1px 1px rgba(0,0,0,0.5)',
       fontSize: 17,
@@ -58,9 +50,9 @@ class CreditCard extends React.Component{
       justifyContent: 'center',
       marginTop: '10px',
       marginBottom: '10px',
-      paddingLeft: '40px'
+      paddingLeft: '40px',
+      fontFamily: '"ocr-a-std",sans-serif'
     };
-
     var facebookBtn =  {
       border: 'none',
       boxShadow: 'none',
@@ -74,7 +66,6 @@ class CreditCard extends React.Component{
       border: '1px solid #415D89',
       fontFamily: '"ocr-a-std",sans-serif'
     };
-
     var gradients = (
       <g>
         <linearGradient id="grad1" gradientUnits="userSpaceOnUse" x1="300" y1="328" x2="300" y2="88.5162">
@@ -87,7 +78,6 @@ class CreditCard extends React.Component{
         </linearGradient>
       </g>
     );
-
     return (
       <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh'}}>
         <svg viewBox="0 0 320 256" style={{width: '480px', fontFamily: '"ocr-a-std",sans-serif'}}>
@@ -126,17 +116,14 @@ class CreditCard extends React.Component{
     );
   }
 }
-
 function mapStateToProps(state) {
   return {
     landing: state.landing
   }
 }
-
 function mapDispatchToProps(dispatch) {
   return {
     login: bindActionCreators(login, dispatch),
   }
 }
-
 export default connect(mapStateToProps, mapDispatchToProps)(CreditCard);

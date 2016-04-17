@@ -20,18 +20,18 @@ body {
     background-size: cover;
     background-position: center bottom;
     background-repeat: no-repeat;
-    animation: myfiu-back 30s linear infinite;
+    animation: ani-back 30s linear infinite;
 }
 
-@keyframes myfiu-back {
+@keyframes ani-back {
   0% {
-      background-color: #5e77bb;
-  }
-  50% {
       background-color: #45d5da;
   }
+  50% {
+      background-color: #a25ebb;
+  }
   100% {
-      background-color: #5e77bb;
+      background-color: #45d5da;
   }
 }
 input {
