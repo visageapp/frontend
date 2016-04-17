@@ -65,8 +65,8 @@ handleBank (bank) {
     var bankList  = bankOptions.map((bank, key) => {
       var curr = bank;
       return (
-        <li style={{listStyle: 'none', backgroundColor: '#f3f3f3', margin: '5px', borderRadius: '3px', display: 'flex', justifyContent: 'center', padding: '10px' }} onClick={(e) => this.handleBank(curr)} key={key}>
-          <BankButton style={{height: '40px', width: 'auto'}} bank={bank} />
+        <li style={{listStyle: 'none', backgroundColor: '#f3f3f3', margin: '5px', borderRadius: '3px', display: 'flex', alignItems:'center', justifyContent: 'center', padding: '10px', display: 'inline-block' }} onClick={(e) => this.handleBank(curr)} key={key}>
+          <BankButton style={{height: '50px', width: '100px',alignItems:'center', justifyContent: 'center', color: '#29AAE2' }} bank={bank} />
         </li>
       )
     })
@@ -74,7 +74,7 @@ handleBank (bank) {
     return (
       <div>
         <p>BankType</p>
-        <ul>
+        <ul style={{width: '260px', margin: 0, padding: 0, alignItems:'center', justifyContent: 'center'}}>
           {bankList}
         </ul>
         <div>

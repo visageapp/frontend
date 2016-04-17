@@ -38,9 +38,9 @@ input {
     border: 0 none;
     background: rgba(0, 0, 0, 0);
     color: #fff;
-    &:focus {
-      outline: none;
-    }
+}
+input:focus{
+  outline: none
 }
 a {
     text-decoration: none;
