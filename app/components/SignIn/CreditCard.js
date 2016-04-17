@@ -5,7 +5,6 @@ import { login } from './../../actions/landing.js';
 import FacebookLogin from './FacebookLogin.js';
 import PlaidLogin from './PlaidLogin.js';
 import {Motion, StaggeredMotion, spring} from 'react-motion';
-import PlaidLogin from './PlaidLogin.js';
 
 class CreditCard extends React.Component{
 
