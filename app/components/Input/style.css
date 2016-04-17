@@ -1,0 +1,48 @@
+.input {
+    border-bottom: solid 1px rgba(255,255,255,0.75);
+    position: relative;
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 8px;
+        width: 1px;
+        background: rgba(255,255,255,0.75);
+    }
+    &:after {
+        clear: both;
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        height: 8px;
+        width: 1px;
+        background: rgba(255,255,255,0.75);
+    }
+
+    input {
+        color: #fff;
+        padding: 8px 12px;
+        transition: padding 0.3s;
+        font-weight: 300;
+        font-family: 'Roboto', sans-serif;
+        &:focus {
+            padding: 10px 24px;
+            outline: none;
+        }
+    }
+    label {
+        user-select: none;
+        opacity: 0.5;
+        padding-bottom: 20px;
+        z-index: -2;
+        position: absolute;
+        transform: translate(0px, 0px);
+        left: 10%;
+        top: 30%;
+        transition: transform 0.3s, opacity 0.3s;
+    }
+}

@@ -83,7 +83,7 @@ class CreditCard extends React.Component{
       </g>
     );
     return (
-      <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh'}}>
+      <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh'}}>
         <svg viewBox="0 0 320 256" style={{width: '480px', fontFamily: '"ocr-a-std",sans-serif'}}>
           {gradients}
           <clipPath id="clip">
@@ -120,7 +120,6 @@ class CreditCard extends React.Component{
             }
           </Motion>
         </svg>
-        <PlaidLogin  />
       </div>
     );
 

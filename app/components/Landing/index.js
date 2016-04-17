@@ -55,7 +55,7 @@ export default class Landing extends React.Component {
                   return (
                     <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column'}}>
                     <h2>{s}</h2>
-                    <Link to='/signin'>
+                    <Link to='/bank'>
                     <svg viewBox="0 0 16 16" style={{padding: '32px 0', width: 48, opacity: 1-i.x}}>
                           <polyline style={{fill:'none',stroke:'#FFFFFF', strokeMiterlimit:10}} points="14,5 8,11 2,5 "/>
                     </svg>

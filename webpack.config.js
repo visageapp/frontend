@@ -3,6 +3,8 @@ var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var autoprefixer = require('autoprefixer');
+var cssnano = require('cssnano');
+var precss = require('precss');
 
 module.exports = {
 
@@ -30,11 +32,12 @@ module.exports = {
       }
     ]
   },
+  postcss: [precss(), autoprefixer(), cssnano()],
   plugins: [
       new ExtractTextPlugin('bundle.css'),
-        new webpack.DefinePlugin({
-          'process.env.NODE_ENV': 'production'
-        })
+        // new webpack.DefinePlugin({
+        //   'process.env.NODE_ENV': 'production'
+        // })
   ]
   // plugins: [
   //   new webpack.optimize.OccurenceOrderPlugin(),

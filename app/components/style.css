@@ -7,9 +7,9 @@ html, body {
     padding: 0;
     width: 100%;
     height: 100%;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'brandon-grotesque', sans-serif;
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 200;
     color: #fff;
     z-index: -2;
 }

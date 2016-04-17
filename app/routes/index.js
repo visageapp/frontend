@@ -6,7 +6,7 @@ import configureStore from './../store/store.js';
 import App from './../components/App.js';
 import Landing from './../components/Landing/index.js';
 import CreditCard from './../components/SignIn/CreditCard.js';
-
+import PlaidLogin from './../components/SignIn/PlaidLogin.js';
 const store = configureStore();
 
 render (
@@ -15,7 +15,8 @@ render (
       <Router history={browserHistory}>
         <Route path="/" component={App}>
           <IndexRoute component={Landing}/>
-          <Route path="/signin" component={CreditCard}/>
+          <Route path="/bank" component={PlaidLogin}/>
+          <Route path="/visa" component={CreditCard} />
         </Route>
       </Router>
     </Provider>
