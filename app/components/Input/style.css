@@ -42,7 +42,7 @@
         position: absolute;
         transform: translate(0px, 0px);
         left: 10%;
-        top: 30%;
+        top: 40%;
         transition: transform 0.3s, opacity 0.3s;
     }
 }

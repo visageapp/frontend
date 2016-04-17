@@ -5,10 +5,17 @@ import { login } from './../../actions/landing.js';
 import FacebookLogin from './FacebookLogin.js';
 import PlaidLogin from './PlaidLogin.js';
 import {Motion, StaggeredMotion, spring} from 'react-motion';
+
+var style = require('./pladlog.css');
+
 class CreditCard extends React.Component{
   constructor (props) {
     super(props);
-    this.state = {flip: 0};
+    this.state = {
+      flip: 0,
+      accNum: '',
+      name: ''
+    };
   }
 
   responseFacebook(response) {
@@ -23,6 +30,16 @@ class CreditCard extends React.Component{
   responsePlaid(public_token, metadata) {
     console.log(public_token);
     console.log(metadata);
+  }
+  onName (e) {
+    console.log('name');
+    this.setState({name: e.target.value})
+  }
+
+  onAccNum (e) {
+    if(this.state.accNum.length <= 19){
+      this.setState({accNum: e.target.value})
+    }
   }
 
   render () {
@@ -84,6 +101,13 @@ class CreditCard extends React.Component{
     );
     return (
       <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh'}}>
+        <Motion defaultStyle={{x: 0}} style={{x: spring(1, {stiffness: 60})}}>
+          {i => {
+        return (<div style={{display: 'block', maxWidth: 400, padding: 16, opacity: i.x}}>
+          <h2>Step 2: Enter your Visa Card Account</h2><p>We'll use all this information to help be the best assistant possible. </p>
+        </div>);
+      }}
+      </Motion>
         <svg viewBox="0 0 320 256" style={{width: '480px', fontFamily: '"ocr-a-std",sans-serif'}}>
           {gradients}
           <clipPath id="clip">
@@ -102,10 +126,10 @@ class CreditCard extends React.Component{
                           <img style={{width: '70px', height: 'auto', alignSelf: 'flex-start', paddingRight: '-10px',display: 'inline-block'}} alt="Visage" src="assets/brand/logo.svg"/>
                           <img style={{width: '128px', height: 'auto', alignSelf: 'flex-end', paddingRight: '0px', paddingTop:'8px' ,display: 'inline-block'}} alt="Visage" src="assets/brand/logotype.svg"/>
                         </div>
-                        <input style={Object.assign({display: 'inline-block', width: '100%'}, cardInfoDate)} placeholder="XXXX XXXX XXXX XXXX" />
+                        <input value={this.state.accNum} onChange={e => this.onAccNum(e)} style={Object.assign({display: 'inline-block', width: '100%'}, cardInfoDate)} placeholder="XXXX XXXX XXXX XXXX" maxlength="14"/>
                         <div style={{display: 'inline-block'}}>
                           <p style={cardInfo}>MM/YYYY</p>
-                          <input style={Object.assign({display: 'inline-block', width: '100%', paddingBottom: '10px', marginTop: '0 !important'}, cardInfoDate)} placeholder="John Doe"/>
+                          <input value={this.state.name} onChange={e => this.onName(e)} style={Object.assign({display: 'inline-block', width: '100%', paddingBottom: '10px', marginTop: '0 !important'}, cardInfoDate)} placeholder="John Doe"/>
                         </div>
                         <p style={{textAlign: 'right', paddingRight: '40px', marginTop:'-70px'}}>
                           <img style={{width: '60px', height: 'auto', display: 'inline-block', justifyContent: 'flex-end'}} alt="Visage" src="assets/facebookbutton.svg"/>

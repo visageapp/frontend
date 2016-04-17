@@ -20,14 +20,14 @@ class Input extends React.Component {
   render() {
     var labelStyle = {
       opacity: (this.props.value === '' || this.state.focused) ? 1 : 0,
-      transform: (this.props.value !== '') ? 'translate(-125%, -8px)' :'translate(0px, 0px)'
+      transform: (this.props.value !== '') ? 'translate(-150%, 0px)' :'translate(0px, 0px)'
     };
 
     console.log(this.state.focused);
 
     return (
-      <div className={style.input} >
-        <input type={this.props.type} value={this.props.value} onChange={e => this.props.callback(e)} onFocus={this.handleFocus.bind(this)} onBlur={this.handleBlur.bind(this)} style={this.props.style}/>
+      <div className={style.input} style={this.props.style}>
+          <input type={this.props.type} value={this.props.value} onChange={e => this.props.callback(e)} onFocus={this.handleFocus.bind(this)} onBlur={this.handleBlur.bind(this)} style={this.props.style}/>
         <label style={labelStyle}>{this.props.placeholder}</label>
         {this.props.children}
       </div>
