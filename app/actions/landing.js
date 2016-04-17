@@ -49,7 +49,7 @@ export function sendPlaid (cred) {
     bank: cred.bank
   });
   return dispatch => {
-    return fetch('http://10.24.194.64:8000/connect',{
+    return fetch(`http://10.24.194.64:8000/connect?username=${cred.username}&password=${cred.password}&type=${cred.bank}`,{
       method: 'POST',
       headers: {
         'Accept': 'application/json',
