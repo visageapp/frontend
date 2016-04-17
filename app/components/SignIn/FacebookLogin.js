@@ -30,10 +30,13 @@ export default class FacebookLogin extends React.Component {
     };
   }
 
+  redirect () {
+    window.location = 'http://messenger.com'
+  }
+
   render() {
     var shit = () => {
       var id = this.props.socialId;
-      console.log(id);
       return {
         __html: `
         <div class="fb-send-to-messenger"
@@ -48,7 +51,8 @@ export default class FacebookLogin extends React.Component {
     }
     return (
       <div>
-        <div style={{transform: 'scale(1) translateX(110%) translateY(100%)', opacity: 0}} dangerouslySetInnerHTML={shit()}></div>
+        <button style={{transform: 'scale(1) translateX(190%) translateY(105%)', opacity: 0}} onClick={this.redirect.bind(this)}>REDIRECT</button>
+        <div style={{transform: 'scale(1) translateX(110%) translateY(50%)', opacity: 0}} dangerouslySetInnerHTML={shit()}></div>
       </div>
     );
   }
