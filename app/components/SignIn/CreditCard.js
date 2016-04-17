@@ -52,7 +52,7 @@ class CreditCard extends React.Component{
       fontSize: 17,
       textTransform: 'uppercase',
       justifyContent: 'center',
-      marginTop: '10px',
+      // marginTop: '10px',
       marginBottom: '10px',
       paddingLeft: '40px',
       fontFamily: '"ocr-a-std",sans-serif'
@@ -104,8 +104,8 @@ class CreditCard extends React.Component{
                         </div>
                         <input style={Object.assign({display: 'inline-block', width: '100%'}, cardInfoDate)} placeholder="XXXX XXXX XXXX XXXX" />
                         <div style={{display: 'inline-block'}}>
-                          <p style={cardInfo}>04/16</p>
-                          <p style={cardInfo}>{(this.props.landing.get('name')) ?  this.props.landing.get('name') : 'Your Name' }</p>
+                          <p style={cardInfo}>MM/YYYY</p>
+                          <input style={Object.assign({display: 'inline-block', width: '100%', paddingBottom: '10px', marginTop: '0 !important'}, cardInfoDate)} placeholder="John Doe"/>
                         </div>
                         <p style={{textAlign: 'right', paddingRight: '40px', marginTop:'-70px'}}>
                           <img style={{width: '60px', height: 'auto', display: 'inline-block', justifyContent: 'flex-end'}} alt="Visage" src="assets/facebookbutton.svg"/>
