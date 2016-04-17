@@ -27,6 +27,14 @@ export default class Landing extends React.Component {
       var subtitle = "The Inteligent Finance Messenger";
         return (
             <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh', flexDirection: 'column'}}>
+              <Motion defaultStyle={{x: 1}} style={{x: spring(0, {stiffness: 30})}}>
+                {i => {
+                    return (
+                      <img style={{opacity: (1-i.x), transform: `translateY(${-8 * i.x}px)`, width: 400}} alt="logo" src="../assets/brand/logo.svg"/>);
+
+                  }
+                }
+              </Motion>
             <StaggeredMotion defaultStyles={[a, a, a, a, a, a, a, a]} styles={prevInterpolatedStyles => prevInterpolatedStyles.map((_, i) => {return i === 0 ? {x: spring(0, {stiffness: 120})} : {x: spring(prevInterpolatedStyles[i - 1]['x'], {stiffness: 120})} })}>
             {interpolatingStyles =>
             <svg viewBox="0 0 160 64" style={{width: 480}}>
