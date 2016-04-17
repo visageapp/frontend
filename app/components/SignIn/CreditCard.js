@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { login } from './../../actions/landing.js';
 import FacebookLogin from './FacebookLogin.js';
 import {Motion, StaggeredMotion, spring} from 'react-motion';
-
+import PlaidLogin from './PlaidLogin.js';
 
 class CreditCard extends React.Component{
 
@@ -86,7 +86,7 @@ class CreditCard extends React.Component{
     //<FacebookLogin socialId="1674177709516637" language="en_US" scope="public_profile,email" btnStyles={facebookBtn} responseHandler={this.responseFacebook.bind(this)} xfbml={true} version="v2.5" buttonText="Login With Facebook"/>
 
     return (
-      <div>
+      <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh'}}>
         <svg viewBox="0 0 320 256" style={{width: '480px', fontFamily: '"ocr-a-std",sans-serif'}}>
           {gradients}
           <clipPath id="clip">
@@ -117,6 +117,7 @@ class CreditCard extends React.Component{
             }
           </Motion>
         </svg>
+        <PlaidLogin  />
       </div>
     );
   }
