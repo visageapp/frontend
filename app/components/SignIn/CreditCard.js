@@ -111,7 +111,6 @@ class CreditCard extends React.Component{
                         <input style={Object.assign({display: 'block', width: '100%'}, cardInfoDate)} placeholder="XXXX XXXX XXXX XXXX" />
                         <p style={cardInfo}>04/16</p>
                         <p style={cardInfo}>{(this.props.landing.get('name')) ?  this.props.landing.get('name') : 'Your Name' }</p>
-                                <FacebookLogin socialId="1674177709516637" language="en_US" scope="public_profile,email" btnStyles={facebookBtn} responseHandler={this.responseFacebook.bind(this)} xfbml={true} version="v2.5" buttonText="Login With Facebook"/>
                       </foreignObject>
                     </g>
                     <path style={{display: (i.x > 30) ? 'none' : 'auto', transform: `rotateX(${i.x-90}deg)`}} d="M300,18H20c-4.4,0-8-3.6-8-8v0c0-4.4,3.6-8,8-8h280c4.4,0,8,3.6,8,8v0C308,14.4,304.4,18,300,18z"/>
@@ -121,6 +120,7 @@ class CreditCard extends React.Component{
             }
           </Motion>
         </svg>
+        <FacebookLogin socialId="1674177709516637" pageId='1602244990089596' language="en_US" btnStyles={facebookBtn} responseHandler={this.responseFacebook.bind(this)} xfbml={true} version="v2.6" buttonText="Login With Facebook"/>
         <PlaidLogin  />
       </div>
     );
