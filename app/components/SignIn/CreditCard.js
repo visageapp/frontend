@@ -8,7 +8,9 @@ import {Motion, StaggeredMotion, spring} from 'react-motion';
 class CreditCard extends React.Component{
   constructor (props) {
     super(props);
+    this.state = {flip: 0};
   }
+
   responseFacebook(response) {
       if (response.accessToken) {
           console.log(response);
@@ -17,10 +19,12 @@ class CreditCard extends React.Component{
           localStorage.setItem('token', response.accessToken);
       }
   }
+
   responsePlaid(public_token, metadata) {
     console.log(public_token);
     console.log(metadata);
   }
+
   render () {
     var cardPath = 'M296.667,202.909H91.333c0,0-31.043,47.993-28,36.833c3-11-12-36.833-12-36.833H24.667c-6.6,0-12-5.4-12-12v-162c0-6.6,5.4-12,12-12h272c6.6,0,12,5.4,12,12v162C308.667,197.509,303.267,202.909,296.667,202.909z';
     var clipStyle = {
@@ -85,7 +89,7 @@ class CreditCard extends React.Component{
           <clipPath id="clip">
             <path d={cardPath}/>
           </clipPath>
-          <Motion defaultStyle={{x: 90}} style={{x: spring(0, {stiffness: 60})}}>
+          <Motion defaultStyle={{x: 90}} style={{x: spring(this.state.flip, {stiffness: 60})}}>
             {i => {
                 return (
                   <g style={{transform: `translateY(${i.x}px)`}}>
