@@ -65,8 +65,8 @@ handleBank (bank) {
     var bankList  = bankOptions.map((bank, key) => {
       var curr = bank;
       return (
-        <li onClick={(e) => this.handleBank(curr)} key={key}>
-          <BankButton bank={bank} />
+        <li style={{listStyle: 'none', backgroundColor: '#f3f3f3', margin: '5px', borderRadius: '3px', display: 'flex', justifyContent: 'center', padding: '10px' }} onClick={(e) => this.handleBank(curr)} key={key}>
+          <BankButton style={{height: '40px', width: 'auto'}} bank={bank} />
         </li>
       )
     })
@@ -77,9 +77,11 @@ handleBank (bank) {
         <ul>
           {bankList}
         </ul>
-        <input value={this.state.username} onChange={this.handleUsername.bind(this)} placeholder="username" />
-        <input value={this.state.password} onChange={this.handlePassword.bind(this)} placeholder="password" />
-        <button onClick={this.submitPlaid.bind(this)}>Submit</button>
+        <div>
+          <input value={this.state.username} onChange={this.handleUsername.bind(this)} placeholder="username" />
+          <input value={this.state.password} onChange={this.handlePassword.bind(this)} placeholder="password" />
+          <button onClick={this.submitPlaid.bind(this)}>Submit</button>
+        </div>
       </div>
     );
   }

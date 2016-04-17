@@ -20,39 +20,35 @@ export default class FacebookLogin extends React.Component {
     window.fbAsyncInit = () => {
       FB.init({
         appId: this.props.socialId,
+        pageId: this.props.pageId,
+        color: 'blue',
+        size: 'standard',
         xfbml: this.props.xfbml,
         cookie: this.props.cookie,
-        version: this.props.version,
+        version: this.props.version
       });
     };
   }
 
-  responseApi (authResponse) {
-    FB.api('/me', { fields: this.props.fields }, (me) => {
-      me.accessToken = authResponse.accessToken;
-      this.props.responseHandler(me);
-    });
-  };
-
-  checkLoginState (response) {
-    if (response.authResponse) {
-      this.responseApi(response.authResponse);
-    } else {
-      if (this.props.responseHandler) {
-        this.props.responseHandler({ status: response.status });
+  render() {
+    var shit = () => {
+      var id = this.props.socialId;
+      console.log(id);
+      return {
+        __html: `
+        <div class="fb-send-to-messenger"
+          messenger_app_id=${id}
+          page_id=${this.props.pageId}
+          color="blue"
+          size="standard">
+        </div>
+        `
       }
     }
-  };
-
-  clickHandler () {
-    FB.login(this.checkLoginState.bind(this), { scope: this.props.scope });
-  };
-
-  render() {
     return (
-        <button style={this.props.btnStyles} onClick={this.clickHandler.bind(this)}>
-          Login With Facebook
-        </button>
+      <div>
+        <div dangerouslySetInnerHTML={shit()}></div>
+      </div>
     );
   }
 }
