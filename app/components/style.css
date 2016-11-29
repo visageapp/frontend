@@ -1,0 +1,96 @@
+/**
+ * Base Styles
+ */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'brandon-grotesque', sans-serif;
+    font-size: 16px;
+    font-weight: 200;
+    color: #fff;
+    z-index: -2;
+}
+body {
+    background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.15)), radial-gradient(circle, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), linear-gradient(30deg, rgba(194, 15, 154, 0.7), rgba(183, 56, 150, 0));
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    animation: ani-back 30s linear infinite;
+}
+
+@keyframes ani-back {
+  0% {
+      background-color: #45d5da;
+  }
+  50% {
+      background-color: #a25ebb;
+  }
+  100% {
+      background-color: #45d5da;
+  }
+}
+input {
+    border: 0 none;
+    background: rgba(0, 0, 0, 0);
+    color: #fff;
+}
+input:focus{
+  outline: none
+}
+a {
+    text-decoration: none;
+    cursor: pointer;
+    outline: 0;
+    &:link, &:visited {
+        color: #fff;
+    }
+    &:hover {
+        color: #ddd;
+    }
+    &:active {
+        color: #ccc;
+    }
+}
+h1, h2, h3, h4, h5, h6 {
+    font-style: normal;
+    font-size: 3em;
+    font-weight: 100;
+    margin: 0;
+    padding: 0;
+}
+h2 {
+    font-size: 2em;
+}
+h3 {
+    font-size: 1.5em;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1.12em;
+}
+h6 {
+    font-size: 1.05em;
+}
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+p {
+    line-height: 1.5em;
+}
+:global {
+    .full {
+        width: 100vw;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}

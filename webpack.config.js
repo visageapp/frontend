@@ -1,13 +1,17 @@
 var fs = require('fs');
 var path = require('path');
 var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var autoprefixer = require('autoprefixer');
+var cssnano = require('cssnano');
+var precss = require('precss');
 
 module.exports = {
 
   devtool: 'source-map',
 
   entry: [
-    './app/components/App.js'
+    './app/routes/index.js'
   ],
 
   output: {
@@ -23,16 +27,18 @@ module.exports = {
         loader: 'babel-loader'
       },
       {
-        test: /\.scss$/,
-        loaders: ['style', 'css', 'sass']
-      },
-      {
         test: /\.css$/,
-        loaders: ['style-loader','css-loader']
-      },
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]!postcss-loader')
+      }
     ]
   },
-
+  postcss: [precss(), autoprefixer(), cssnano()],
+  plugins: [
+      new ExtractTextPlugin('bundle.css'),
+        // new webpack.DefinePlugin({
+        //   'process.env.NODE_ENV': 'production'
+        // })
+  ]
   // plugins: [
   //   new webpack.optimize.OccurenceOrderPlugin(),
   //   new webpack.optimize.DedupePlugin(),

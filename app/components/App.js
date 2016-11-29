@@ -1,7 +1,8 @@
 import React from 'react';
-import { render } from 'react-dom';
+import Devtools from './Devtools/Devtools';
+import styles from './style.css';
 
-class App extends React.Component{
+export default class App extends React.Component{
 
   constructor (props) {
     super(props);
@@ -9,13 +10,10 @@ class App extends React.Component{
 
   render () {
     return (
-      <div>
-        <h1>Hello from App</h1>
-      </div>
+        <div>
+          {this.props.children}
+        </div>
     );
   }
 }
-
-render(
-<App />,document.getElementById('app')
-);
+          // <Devtools />
